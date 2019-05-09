@@ -1,36 +1,39 @@
 # -*- coding: utf-8 -*-
 """
-Spyder Editor
+Wallpaper extractor program
 
-This is a temporary script file.
+used to find widnows spotlight pictures and turn into png's to browse through
 """
 import os
 import shutil as sht
 import random as rnd
 
-#os.makedirs('C:\\Users\\Sohraab\\Desktop\\spotlight pics')
+##############################################################
 
-src = 'C:\\Users\\Sohraab\\Desktop\\Assets'
-dst = 'C:\\Users\\Sohraab\\Desktop\\assets_bkp'
+main_dir = "C:\\Users\\Sohraab\\Desktop\\assets_bkp\\"  # future wallpaper directory
+
+src = 'C:\\Users\\Sohraab\\Desktop\\Assets'         # where spotlight pics stored
+dst = main_dir
 
 sht.copytree(src, dst)
 
+###############################################################
 
-folder = 'C:\\Users\\Sohraab\\Desktop\\assets_bkp'   # wallpaper directory
-files = [f for f in os.listdir(folder)]
-a = len(files)
-names = [rnd.randrange(1, 99999, 1) for _ in range(a)]
-suffix = ".png"
+folder = main_dir   
+files = [f for f in os.listdir(folder)]     #list of files copied
+a = len(files)      #number of files in list of files
+names_int = [rnd.randrange(1, 99999, 1) for _ in range(a)]      #assign random integer to each file
+names_str = list(map(str, names_int))       #convert each integer to string for future renaming
 
-for name in names:
-    os.path.join(C:\\Users\\Sohraab\\Desktop\\, name + "." + filename_suffix)'
+names_list = []     #empty list also used for future renaming
 
+for name in names_str:
+    a=os.path.join("C:\\Users\\Sohraab\\Desktop\\assets_bkp\\" + name + "." + "png")
+    names_list.append(a)        #new file names made, including abs path of renamed files
 
+###############################################################
 
-for (file,name) in zip(files,names):
-    os.rename(file, names + ".png"))
+for (file, name) in zip(files, names_list):
+    os.rename(os.path.join(main_dir, file), os.path.join(main_dir, name))       #files renamed and thus converted to pictures
 
-
-
-#os.rename('C:\\Users\\Sohraab\\Desktop\\test.txt', 'C:\\Users\\Sohraab\\Desktop\\hahaha.png')
-    
+###############################################################
